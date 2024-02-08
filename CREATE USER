@@ -1,0 +1,24 @@
+--Creacion del usuario
+
+create user [NombreUsuario] identified by [Contraseña]
+default tablespace system 
+temporary tablespace temp
+quota unlimited on system;
+
+--Privilegios de usuario
+
+grant create session to [NombreUsuario];
+grant create table to [NombreUsuario];
+grant create view to pearLerning;
+grant create procedure to [NombreUsuario];
+grant create sequence to [NombreUsuario];
+
+--Privilegio Administrar Tablas 
+
+grant all on [NombreTabla] to [NombreUsuario];
+
+revoke all on [NombreTabla] from [NombreUsuario];
+
+--Eliminar usuario
+
+drop user [NombreUsuario] cascade;
